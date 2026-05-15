@@ -1,0 +1,178 @@
+{
+  "name": "estun",
+  "scopeName": "source.estun",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#data-types" },
+    { "include": "#functions" },
+    { "include": "#variables" },
+    { "include": "#numbers" },
+    { "include": "#strings" },
+    { "include": "#operators" },
+    { "include": "#labels" },
+    { "include": "#constants" },
+    { "include": "#function-call" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.robot-language",
+          "begin": "//",
+          "end": "$"
+        },
+        {
+          "name": "comment.line.double-minus.robot-language",
+          "begin": "--",
+          "end": "$"
+        },
+        {
+          "name": "comment.block.robot-language",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.robot-language",
+          "match": "\\b(IF|THEN|ELSIF|ELSE|ENDIF|END_IF|ENDIF|SWITCH|CASE|DEFAULT|END_SWITCH|WHILE|END_WHILE|FOR|ENDFOR|END_FOR|GOTO|LABEL|CALL|RUN|KILL|RETURN|Start|End|and|or|not)\\b"
+        }
+      ]
+    },
+    "data-types": {
+      "patterns": [
+        {
+          "name": "storage.type.robot-language",
+          "match": "\\b(BOOL|INT|REAL|STRING|BoolOneArray|IntOneArray|RealOneArray|StringOneArray|APOS|CPOS|DAPOS|DCPOS|APOSARRAY|CPOSARRAY|POSCFG|SPEED|ZONE|TOOL|USERCOOR|SYNCOORD|PAYLOAD|INTERRUPT|CenterPos|InertiaTensor|LoadDyn|EXTTCP|COLLIPARAM|POSITIONER|LsScale|LsThresh|DI|DO|AI|AO|SimDI|SimDO|SimAI|SimAO|WEAVE|CLOCK|AREA|POLYHEDRON|PLCBOOL|PLCINT|PLCDINT|PLCREAL|PALLET|PLACEOPTIONS|Socket|RESERVED|_type|World|nullTool)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.robot-language",
+          "match": "\\b(MovJ|MovL|MovC|MovCircle|MovCW|MovCircleW|MovLW|MovJHand|MovJRel|MovLRel|MovJSearch|MovLSearch|MovJOffset|MovJOffsetC|MovLOffset|MovLOffsetC|MovArch|MovLArch|MovH|OnDistance|OnParameter|Wait|WaitFinish|WaitCondition|SetDO|SetAO|SetSimDO|SetSimAO|WaitDI|WaitDI8421|WaitAI|WaitSimDI|WaitSimDI8421|WaitSimAI|PulseOut|PulseSimOut|GetDI8421|GetSimDI8421|SetDO8421|SetSimDO8421|GetSimDIToVar|SetSimDOByVar|GetSimAIToVar|GetSimAIToInt|SetDIEdge|SetSimAOByVar|SetSimDIEdge|AutoGainDisable|AutoGainEnable|AutoTune|CalcCoord|CalcTool|GetAxisTorque|GetCurOverRide|GetRobotIsMoving|Hand|SetAxisColliParam|SetAxisVibraBLevel|SetBlendParam|SetCartDyn|SetCircMode|SetColliAutoTune|SetColliEnable|SetColliParam|SetCoord|SetExternalTCP|SetJointDyn|SetMotionMode|SetOriMode|SetOverRide|SetPayload|SetPositioner|SetRestorePC|SetRtInfo|SetRtToErr|SetRtWarning|SetSCARAMode|SetSingularPass|SetTool|SetVibrationParam|Stop|GetCurAPos|GetCurCPos|APosToCPos|CPosToAPos|CPosToCPos|ToolOffset|UserOffset|CalcPosDist|CalPosOffset|PosOffset|AxisLock|BitAnd|BitLSH|BitNeg|BitOr|BitRSH|BitXor|CLKRead|CLKReset|CLKStart|CLKStop|AreaActivate|AreaConnectIO|AreaDeactivate|AreaDisConnectIO|PolyhedronAreaActivate|PolyhedronAreaConnectIO|PolyhedronAreaDeactivate|PolyhedronAreaDisConnectIO|GetCamPos|SendMessage|TrigCam|WaitFinishCAM|PalletFromGet|PalletFromPut|PalletReset|PalletToGet|PalletToPut|SocketCreate|SocketClose|SocketSendInt|SocketSendReal|SocketSendStr|SocketReadInt|SocketReadReal|SocketReadStr|SocketResetBuf|SoftFloatStart|SoftFloatStop|MovLSync|MovJSyncQuit|MovLSyncQuit|WaitWObj|SetTargetPos|SetSyncoord|SyncCToUserC|WaitConvDis|SimConveyorOn|SimConveyorOff|ReceiveWObj|ResetWObjBuf|IConnect|IDelete|ISleep|IWatch|ITimer|ISignalDI|ISignalSimDI|IEnter|MovToIPos|IExit|ExitCycle|SetMatrix|GetMatrix|SetMatrixFourPoint|GetMatrixFourPoint|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|log|log10|sqrt|exp|pow|deg|rad|fmod|floor|random|byte|char|find2|findEnd|format|getAt|gsub|sub|len|left|lower|right|reverse|strcmp|trimLeft|trimRight|removeStr|upper|IToStr|RToStr|StrToI|StrToR|APosToStr|CPosToStr|TranStrToInt|TranStrToReal|TranStrToApos|TranStrToCpos|GetModConState|ReadModbusReg|WriteModbusReg|StartMdlLog|StopMdlLog|CalcDynMdl|MSWaitSync|MovMSSyncOn|MSSyncOff|SetSyncSignal|GetSyncSignal|LatchEnable|GetPSOStatus|RecordLatchPos|SetLatchPos|SetLatchPosAttr|SetLatchPosDyn|WaitCameraDCPOS|DialogPanel|DialogPanelInt|DialogPanelReal|McConnect|McDisconnect|McIsConnect|McReadSingleRegShort|McReadMultiRegShort|McReadMultiRegDWord|McReadMultiRegReal|McWriteSingleRegShort|McWriteMultiRegShort|McWriteMultiRegDWord|McWriteMultiRegReal|SetZone|SetSpeed|SetAccel|SetOvrd|ResetOvrd|Clear|Circle|MoveC|MoveJ|MoveL|MoveAbsJ|MoveJDO|MoveLDO|SearchL|SearchC|TriggL|TriggJ|TriggIO|WaitDO|WaitAO|WaitTime|WaitUntil|TPWrite|TPReadNum|TPReadFK|TPReadBool|TPReadStr|TPShow|VelSet|AccSet|ConfJ|Offs|RelTool|CRobT|CPos|EOffs|EulerZYX|OrientZYX|RobTarget|TransPose|PoseAdd|PoseInv|PoseMult|VectAdd|VectSub|VectMult|VectDiv|VectToMat|MatToVect|CrossProd|DotProd|Abs|Sqrt|Sin|Cos|Tan|ASin|ACos|ATan|ATan2|Distance|Round|Trunc|DOutput|DInput|AOutput|AInput|GOutput|GInput|IGroup|ISignalAI|ISignalAO|ISignalDI|ISignalDO|ISignalGI|ISignalGO|IOReset|Set|SetGO|SetDI|SetAI|GetDI|GetAI|GetDO|GetAO|GetGI|TestDI|TestAI|TestDO|TestAO|TestGI|BitSet|BitClear|BitTest)\\b"
+        }
+      ]
+    },
+    "function-call": {
+      "patterns": [
+        {
+          "name": "meta.function-call.robot-language",
+          "begin": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.function.robot-language"  
+            },
+            "2": {
+              "name": "punctuation.definition.parameters.begin.robot-language" 
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.robot-language"  
+            }
+          },
+          "patterns": [
+            {
+
+              "name": "punctuation.separator.parameter.robot-language",
+              "match": ","
+            },
+            {
+              "name": "variable.parameter.robot-language",
+              "match": "[^,)]+"
+            }
+          ]
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.robot-language",
+          "match": "\\b(t_p\\.|t_s\\.|t_l\\.|t_g\\.)[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "variable.other.robot-language",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*=\\s*\\{)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.robot-language",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.robot-language",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.robot-language",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.robot-language",
+          "match": "==|>=|<=|>|<|!="
+        },
+        {
+          "name": "keyword.operator.logical.robot-language",
+          "match": "\\b(and|or|not)\\b"
+        },
+        {
+          "name": "keyword.operator.assignment.robot-language",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.arithmetic.robot-language",
+          "match": "\\+|\\-|\\*|\\/|\\%"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "entity.name.label.robot-language",
+          "match": "^[a-zA-Z_][a-zA-Z0-9_]*:"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.robot-language",
+          "match": "\\b(FINE|RELATIVE|ABSOLUTE|DEFAULT|World|USERCOOR0|true|false|ENABLE|DISENABLE|ON|OFF|GOVRON|GOVROFF|MOVJ|MOVL|RiseEdge|DownEdge|NORMAL|SKIP|ALL|SELECT|CURRENT|TypeTool|TypePayload|Enable|Disable|Robot|WithLoad|ValidData|MSGroup1|MSGroup2|MSGroup3|MSGroup4|MSGroup5|MSGroup6|MSGroup7)\\b"
+        },
+        {
+          "name": "variable.parameter.robot-language",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*=\\s*\\d+)"
+        },
+        {
+          "name": "variable.parameter.robot-language",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*=\\s*\"[^\"]*\")"
+        },
+        {
+          "name": "variable.parameter.robot-language",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*=\\s*\\{)"
+        }
+      ]
+    }
+  }
+}
