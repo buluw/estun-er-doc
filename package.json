@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.4",
+    "vitepress-sidebar": "^1.33.2"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-docs.mjs",
+    "docs:dev": "vitepress dev",
+    "docs:build": "npm run sync && vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
