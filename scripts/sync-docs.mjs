@@ -17,6 +17,32 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execSync } from "node:child_process";
 
+// 检测是否在 CI 环境（Cloudflare Pages）
+const isCI = process.env.CF_PAGES === '1' || process.env.CI === 'true'
+
+// 源文件路径配置
+let sourcePath
+
+if (isCI) {
+  // 在 Cloudflare Pages 环境中，使用已经上传到仓库的文件
+  // 方案A：如果有预先同步好的文件
+  sourcePath = path.join(process.cwd(), 'docs', 'source')
+  
+  // 方案B：如果源文件不存在，跳过同步步骤
+  if (!existsSync(sourcePath)) {
+    console.log('⚠️ 源文件目录不存在，跳过同步步骤（CI 环境）')
+    process.exit(0) // 正常退出，不中断构建
+  }
+} else {
+  // 本地开发环境，使用绝对路径
+  sourcePath = 'D:/code/AI/test/ER系列指令手册'
+  
+  if (!existsSync(sourcePath)) {
+    console.error('❌ 本地源文件目录不存在，请检查路径配置')
+    process.exit(1)
+  }
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const SRC = "D:/code/AI/test/ER系列指令手册";
