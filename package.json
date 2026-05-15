@@ -6,10 +6,9 @@
   },
   "scripts": {
     "sync": "node scripts/sync-docs.mjs",
-    "sync:local": "DOCS_SOURCE_PATH='D:/code/AI/test/ER系列指令手册' node scripts/sync-docs.mjs",
     "docs:dev": "vitepress dev",
-    "docs:build": "npm run sync && vitepress build",
-    "docs:build:ci": "vitepress build",
+    "docs:build": "vitepress build",
+    "docs:build:ci": "npm run sync && vitepress build",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
